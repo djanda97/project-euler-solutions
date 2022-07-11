@@ -6,7 +6,7 @@ main :: IO ()
 main = print answer
 
 answer :: Integer
-answer = sum (filter even [x | x <- take 50 fibonacci, x < 4000000])
+answer = sum (filter even (takeWhile (< 4000000) fibonacci))
 
 fibonacci :: [Integer]
 fibonacci = scanl (+) 1 (1 : fibonacci)
